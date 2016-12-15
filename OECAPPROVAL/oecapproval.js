@@ -148,7 +148,7 @@ define(['text!./oecapproval.html', 'text!./workflow.xaml'], function( htmlString
 				"Processed": false,
 				"ReviewerOutcome": "",
 				"ReviewerComments": "",
-				"Dependency": false
+				"Dependency": true
 			};
 		};
 		this.$strNewEmptyWorkflow = function() {
