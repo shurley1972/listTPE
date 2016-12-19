@@ -2,7 +2,6 @@ define([ 'text!master.css','text!./viewmodel.html'], function( css,htmlString) {
 //define([], function() {
 	function viewModel(params) {
 		//if( params.get) params.get( this, params.columns);
-		debugger;
 		 //this._formReadOnly() - computed observable
 		// +++ EDIT MODEL BELOW TO DESIGN YOUR CUSTOM SPA FORM
 		var self = this;
@@ -28,7 +27,7 @@ define([ 'text!master.css','text!./viewmodel.html'], function( css,htmlString) {
 		this.mwp_FormState = ko.observable("").extend({ listItem: "mwp_FormState" });	
 		this.mwp_EventCity = ko.observable("").extend({ listItem: "mwp_EventCity" });	
 		this.mwp_EventTitle = ko.observable("").extend({ listItem: "mwp_EventTitle" });	
-		this.mwp_VendorBoothFee = ko.observable("").extend({ listItem: "mwp_VendorBoothFee" });	
+		//this.mwp_VendorBoothFee = ko.observable("").extend({ listItem: "mwp_VendorBoothFee" });	
 		this.mwp_AdvertisingCost = ko.observable("").extend({ listItem: "mwp_AdvertisingCost" });	
 		this.mwp_SponsorshipAmount = ko.observable("").extend({ listItem: "mwp_SponsorshipAmount" });	
 		this.mwp_RegistrationFee = ko.observable("").extend({ listItem: "mwp_RegistrationFee" });			
@@ -37,6 +36,7 @@ define([ 'text!master.css','text!./viewmodel.html'], function( css,htmlString) {
 		// Bug in code.  Have to set for variables
 		self.SetOneDayEventDefault = ko.computed(function(){if(self.mwp_OneDayEvent() == ""){self.mwp_OneDayEvent('Yes')}}, self);
 		self.SetVendorBoothFeeDefault = ko.computed(function(){if(self.mwp_VendorBoothFee() == ""){self.mwp_VendorBoothFee(null)}}, self);
+		self.SetVendorBoothFeeDefault = ko.computed(function(){if(!self.mwp_VendorBoothFee()){self.mwp_VendorBoothFee(0);}})		
 		self.SetAdvertisingCostsDefault = ko.computed(function(){if(self.mwp_AdvertisingCost() == ""){self.mwp_AdvertisingCost(null)}}, self);
 		self.SetSponsorshipAmountDefault = ko.computed(function(){if(self.mwp_SponsorshipAmount() == ""){self.mwp_SponsorshipAmount(null)}}, self);		
 		self.SetRegistrationFeeDefault = ko.computed(function(){if(self.mwp_RegistrationFee() == ""){self.mwp_RegistrationFee(null)}}, self);		
