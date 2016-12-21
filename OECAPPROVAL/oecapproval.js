@@ -85,10 +85,10 @@ define(['text!./oecapproval.html', 'text!./workflow.xaml'], function( htmlString
 		 * APPROVE TASK BUTTON
 		 */
         this.buttonApproveClick = function () {	
-			$(".custom-error-text").hide();
+			$(".custom-error-text-reject").hide();
 			this.runtime()._closeOnButtonClick = this.closeFormOnButtonClick;
 			//this.approvalWorkflowJSON()[this.ID] = this.$jsonNewEmptyWorkflowStep();
-			$(".custom-error-text").hide();	
+			$(".custom-error-text-reject").hide();	
 			this.approvalWorkflowJSON()[this.ID].ReviewerOutcome = "Approved";
 			this.approvalWorkflowJSON()[this.ID].ReviewerComments = this.commentsValue();
 			this.approvalWorkflowJSON.valueHasMutated();
@@ -104,11 +104,11 @@ define(['text!./oecapproval.html', 'text!./workflow.xaml'], function( htmlString
         this.buttonRejectClick = function () {
 			if (this.commentsValue() == "")
 			{
-				$(".custom-error-text").show();
+				$(".custom-error-text-reject").show();
 			}
 			else
 			{
-				$(".custom-error-text").hide();		
+				$(".custom-error-text-reject").hide();		
 				this.runtime()._closeOnButtonClick = this.closeFormOnButtonClick;
 				this.approvalWorkflowJSON()[this.ID].ReviewerOutcome = "Rejected";
 				this.approvalWorkflowJSON()[this.ID].ReviewerComments = this.commentsValue();
