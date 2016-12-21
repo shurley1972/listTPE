@@ -1,32 +1,31 @@
 <div class="ms-Grid">
-    <div class="ms-Grid-row rowHeight" data-bind="css: { rowHeight: design() == false }" style="display: block;">
+    <div class="ms-Grid-row" data-bind="css: { rowHeight: design() == false }" style="display: block;">
         <div class="ms-u-lg12 ms-u-md12 ms-u-sm12 ms-Grid-col">
-            <component-managerapproval id="9abf0771-3ce7-1ce7-cad0-8bb4297e647f" params="'ID':'ManagerApproval','NextID':'OECApproval','StepName':'Manager Approval','ApproverType':'User','ApproverAccountID':'kpandya','FirstStep':'true','closeonclick':false"
-            class=""></component-managerapproval>
-            <component-oecapproval id="b7380fef-b54b-e573-796d-57dac8ac12db" params="'ID':'OECApproval','NextID':'','StepName':'OEC Approval','ApproverType':'User','ApproverAccountID':'kpandya','FirstStep':'false','closeonclick':false"
+            <component-managerapproval id="3e6ec1d6-b14d-c459-12cf-f7040fdcfa36" params="'ID':'ManagerApproval','NextID':'OECApproval','StepName':'Manager Approval','ApproverType':'Manager','ApproverAccountID':'','FirstStep':'true','closeonclick':false" class=""></component-managerapproval>
+            <component-oecapproval id="e96a8ba7-5120-7210-f965-d6ddc904afe2" params="'ID':'OECApproval','NextID':'','StepName':'OEC Approval','ApproverType':'Group','ApproverAccountID':'SD-SharePoint-Compliance-OEC-FULL','FirstStep':'false','closeonclick':false"
             class=""></component-oecapproval>
         </div>
     </div>
-    <div class="ms-Grid-row rowHeight" data-bind="css: { rowHeight: design() == false }" style="display: block;">
+    <div class="ms-Grid-row" data-bind="css: { rowHeight: design() == false }" style="display: block;">
         <div class="ms-u-lg12 ms-u-md12 ms-u-sm12 ms-Grid-col">
             <div class="Section"> Third-Party Organization Information </div>
         </div>
     </div>
-    <div class="ms-Grid-row rowHeight" data-bind="css: { rowHeight: design() == false }" style="display: block;">
+    <div class="ms-Grid-row" data-bind="css: { rowHeight: design() == false }" style="display: block;">
         <div class="ms-u-md12 ms-u-sm12 ms-Grid-col ms-u-lg12" style="display: block;">
             <div class="form-Sub-Heading">Request approval to exhibit at or support a third-party event such as a conference or trade show.
                 <br> If you are unsure whether a specific request requires approval, please <a style="color: rgb(30, 115, 179); font-weight: 500;" href="mailto:ComplianceOffice@medline.com">contact</a> the OEC directly. </div>
         </div>
     </div>
-    <div class="ms-Grid-row rowHeight" data-bind="css: { rowHeight: design() == false }" style="display: block;">
+    <div class="ms-Grid-row" data-bind="css: { rowHeight: design() == false }" style="display: block;">
         <div class="ms-u-lg12 ms-u-md12 ms-u-sm12 ms-Grid-col">
             <div class="ms-ChoiceFieldGroup">
                 <div class="ms-ChoiceField" style="margin-bottom: 15px; float: left;">
-                    <input name="OneDayEvent" class="ms-ChoiceField-input" id="OneDayEvent-yes" type="radio" value="Yes" data-bind="checked: mwp_OneDayEvent, enable: enableValue" disabled="">
+                    <input name="OneDayEvent" class="ms-ChoiceField-input" id="OneDayEvent-yes" type="radio" value="Yes" data-bind="checked: mwp_OneDayEvent, enable: enableValue">
                     <label class="ms-ChoiceField-field" for="OneDayEvent-yes"><span class="ms-Label">One Day Event</span> </label>
                 </div>
                 <div class="ms-ChoiceField" style="padding-left: 40px; float: left;">
-                    <input name="OneDayEvent" class="ms-ChoiceField-input" id="OneDayEvent-no" type="radio" value="No" data-bind="checked: mwp_OneDayEvent, enable: enableValue" disabled="">
+                    <input name="OneDayEvent" class="ms-ChoiceField-input" id="OneDayEvent-no" type="radio" value="No" data-bind="checked: mwp_OneDayEvent, enable: enableValue">
                     <label class="ms-ChoiceField-field" for="OneDayEvent-no"><span class="ms-Label">Multi-day Event</span> </label>
                 </div>
             </div>
@@ -41,7 +40,7 @@
             <div class="table-Cell" style="padding-left: 15px;"> <span>
 					<span class="ms-Label">Organization State <span class="tooltip"><span class="information table-Cell" style="width: 20px;">&nbsp;</span><span class="tooltiptext">If the organization spans more than one state, use the location of its headquarters.</span></span>
                 </span>
-                <select class="validate" data-bind="value: mwp_OrganizationState, enable: enableValue" data-parsley-required="true" disabled="">
+                <select class="validate" data-bind="value: mwp_OrganizationState, enable: enableValue" data-parsley-required="true">
                     <option value="">Select</option>
                     <option value="Alabama">Alabama</option>
                     <option value="Alaska">Alaska</option>
@@ -115,18 +114,16 @@
         <div class="ms-u-lg12 ms-u-md12 ms-u-sm12 ms-Grid-col">
             <div class="table-Cell row-spacing">
                 <div class="table-Cell" style="padding-right: 25px;">
-                    <label class="ms-Label" data-bind="text: mwp_EventStartDateText">Event Start Date</label>
-                    <input class="ms-TextField-field small-Input datepicker validate hasDatepicker" id="event-Start" onchange="validStartDt()" type="text" placeholder="MM/DD/YYYY" data-bind="value:mwp_EventStartDate, enable: enableValue"
-                    disabled="">
+                    <label class="ms-Label" data-bind="text: mwp_EventStartDateText">Event Date</label>
+                    <input class="ms-TextField-field small-Input datepicker validate hasDatepicker" id="event-Start" onchange="validStartDt()" type="text" placeholder="MM/DD/YYYY" data-bind="value:mwp_EventStartDate, enable: enableValue">
                     <p class="custom-error-text" id="startDt-Req-Msg" style="display: none;">This value is required.</p>
                     <p class="custom-error-text" id="startDt-Valid-Msg" style="display: none;">The date entered is not a valid date.</p>
                     <p class="custom-error-text" id="startDt-Before-Msg" style="display: none;">Event start date cannot be before today's date.</p>
                     <p class="custom-error-text" id="startDt-AfterEnd-Msg" style="display: none;">Start date cannot be after the event end date.</p>
                 </div>
-                <div class="table-Cell" style="display: table-cell;" data-bind="style: { display: mwp_OneDayEventShow }">
+                <div class="table-Cell" style="display: none;" data-bind="style: { display: mwp_OneDayEventShow }">
                     <label class="ms-Label">Event End Date</label>
-                    <input class="ms-TextField-field small-Input datepicker validate hasDatepicker" id="event-End" onchange="validEndDt()" type="text" placeholder="MM/DD/YYYY" data-bind="value:mwp_EventEndDate, enable: enableValue"
-                    disabled="">
+                    <input class="ms-TextField-field small-Input datepicker validate hasDatepicker" id="event-End" onchange="validEndDt()" type="text" placeholder="MM/DD/YYYY" data-bind="value:mwp_EventEndDate, enable: enableValue">
                     <p class="custom-error-text" id="endDt-Req-Msg" style="display: none;">This value is required.</p>
                     <p class="custom-error-text" id="endDt-Valid-Msg" style="display: none;">The date entered is not a valid date.</p>
                     <p class="custom-error-text" id="endDt-Before-Msg" style="display: none;">Event end date cannot be before today's date.</p>
@@ -150,7 +147,7 @@
             </div>
             <div class="table-Cell" style="padding-left: 15px;"> <span>
 					<label class="ms-Label">Event State</label> 
-					<select class="validate" data-bind="value: mwp_EventState, enable: enableValue" data-parsley-required="true" disabled="">
+					<select class="validate" data-bind="value: mwp_EventState, enable: enableValue" data-parsley-required="true">
 						<option value="">Select</option>
 						<option value="Alabama">Alabama</option>
 						<option value="Alaska">Alaska</option>
@@ -210,7 +207,7 @@
     <div class="ms-Grid-row" style="display: block;">
         <div class="ms-u-lg12 ms-u-md12 ms-u-sm12 ms-Grid-col">
             <label class="ms-Label">Description and Purpose of Event</label>
-            <textarea class="validate" style="width: 600px; height: 50%;" data-bind="value: mwp_DescriptionAndPurposeOfEvent, enable: enableValue" data-parsley-required="true" disabled=""></textarea>
+            <textarea class="validate" style="width: 600px; height: 50%;" data-bind="value: mwp_DescriptionAndPurposeOfEvent, enable: enableValue" data-parsley-required="true"></textarea>
             <div class="row-spacing"></div>
         </div>
     </div>
@@ -221,11 +218,11 @@
                 <div class="table-Cell validatePotentialCustomersBox validate" style="padding: 5px; border-radius: 3px;">
                     <div class="ms-ChoiceField validate" style="float: left;">
                         <input name="eventopen" class="ms-ChoiceField-input" id="event-yes" type="radio" value="Yes" data-bind="checked: mwp_PotentialCustomers, enable: enableValue" data-parsley-required="true" data-parsley-errors-container=".validatePotentialCustomersMsg"
-                        data-parsley-class-handler=".validatePotentialCustomersBox" disabled="">
+                        data-parsley-class-handler=".validatePotentialCustomersBox">
                         <label class="ms-ChoiceField-field" for="event-yes"><span class="ms-Label">Yes</span> </label>
                     </div>
                     <div class="ms-ChoiceField validate" style="padding-left: 30px; float: left;">
-                        <input name="eventopen" class="ms-ChoiceField-input" id="event-no" type="radio" value="No" data-bind="checked: mwp_PotentialCustomers, enable: enableValue" data-parsley-required="true" disabled="">
+                        <input name="eventopen" class="ms-ChoiceField-input" id="event-no" type="radio" value="No" data-bind="checked: mwp_PotentialCustomers, enable: enableValue" data-parsley-required="true">
                         <label class="ms-ChoiceField-field" for="event-no"><span class="ms-Label">No</span> </label>
                     </div>
                 </div>
@@ -265,11 +262,11 @@
                 <div class="table-Cell validateVendorBox validate" style="padding: 5px; border-radius: 3px;">
                     <div class="ms-ChoiceField validate" style="float: left;">
                         <input name="vendorBooth" class="ms-ChoiceField-input" id="vendor-yes" type="radio" value="Yes" data-bind="checked: mwp_VendorBooth, enable: enableValue" data-parsley-required="true" data-parsley-errors-container=".validateVendorMsg"
-                        data-parsley-class-handler=".validateVendorBox" disabled="">
+                        data-parsley-class-handler=".validateVendorBox">
                         <label class="ms-ChoiceField-field" for="vendor-yes"><span class="ms-Label">Yes</span> </label>
                     </div>
                     <div class="ms-ChoiceField validate" style="padding-left: 30px; float: left;">
-                        <input name="vendorBooth" class="ms-ChoiceField-input" id="vendor-no" type="radio" value="No" data-bind="checked: mwp_VendorBooth, enable: enableValue" data-parsley-required="true" disabled="">
+                        <input name="vendorBooth" class="ms-ChoiceField-input" id="vendor-no" type="radio" value="No" data-bind="checked: mwp_VendorBooth, enable: enableValue" data-parsley-required="true">
                         <label class="ms-ChoiceField-field" for="vendor-no"><span class="ms-Label">No</span> </label>
                     </div>
                 </div>
@@ -278,7 +275,7 @@
             <div class="row-spacing"></div>
         </div>
     </div>
-    <div class="ms-Grid-row" style="display: block;" data-bind="style: { display: mwp_VendorBoothShow }">
+    <div class="ms-Grid-row" style="display: none;" data-bind="style: { display: mwp_VendorBoothShow }">
         <div class="ms-u-lg12 ms-u-md12 ms-u-sm12 ms-Grid-col">
             <component-textboxcustom id="8bf88f8e-dc3e-6edb-8fef-ccb24a40e8a2" params="'InternalName': 'mwp_VendorBoothFee', 'width': '110px', 'maxlength': '9', 'required': mwp_VendorBoothFeeRequired, 'label': 'Booth Fee $', 'infotip': '', 'datatype': 'number', 'placeholder': '$' "
             class=""></component-textboxcustom>
@@ -292,11 +289,11 @@
                 <div class="table-Cell validateSponsorshipBox validate" style="padding: 5px; border-radius: 3px;">
                     <div class="ms-ChoiceField validate" style="float: left;">
                         <input name="Sponsorship" class="ms-ChoiceField-input" id="Sponsorship-yes" type="radio" value="Yes" data-bind="checked: mwp_Sponsorship, enable: enableValue" data-parsley-required="true" data-parsley-errors-container=".validateSponsorshipMsg"
-                        data-parsley-class-handler=".validateSponsorshipBox" disabled="">
+                        data-parsley-class-handler=".validateSponsorshipBox">
                         <label class="ms-ChoiceField-field" for="Sponsorship-yes"><span class="ms-Label">Yes</span> </label>
                     </div>
                     <div class="ms-ChoiceField validate" style="padding-left: 30px; float: left;">
-                        <input name="Sponsorship" class="ms-ChoiceField-input" id="Sponsorship-no" type="radio" value="No" data-bind="checked: mwp_Sponsorship, enable: enableValue" data-parsley-required="true" disabled="">
+                        <input name="Sponsorship" class="ms-ChoiceField-input" id="Sponsorship-no" type="radio" value="No" data-bind="checked: mwp_Sponsorship, enable: enableValue" data-parsley-required="true">
                         <label class="ms-ChoiceField-field" for="Sponsorship-no"><span class="ms-Label">No</span> </label>
                     </div>
                 </div>
@@ -305,7 +302,7 @@
             <div class="row-spacing"></div>
         </div>
     </div>
-    <div class="ms-Grid-row" style="display: block;" data-bind="style: { display: mwp_SponsorshipShow }">
+    <div class="ms-Grid-row" style="display: none;" data-bind="style: { display: mwp_SponsorshipShow }">
         <div class="ms-u-lg12 ms-u-md12 ms-u-sm12 ms-Grid-col">
             <component-textboxcustom id="035825f2-c522-20ec-06e6-3fbe42b79140" params="'InternalName': 'mwp_SponsorshipAmount', 'width': '110px', 'maxlength': '9', 'required': mwp_SponsorshipAmountRequired, 'label': 'Amount $', 'infotip': '', 'datatype': 'number', 'placeholder': '$' "
             class=""></component-textboxcustom>
@@ -319,11 +316,11 @@
                 <div class="table-Cell validateAdvertisingBox validate" style="padding: 5px; border-radius: 3px;">
                     <div class="ms-ChoiceField validate" style="float: left;">
                         <input name="Advertising" class="ms-ChoiceField-input" id="Advertising-yes" type="radio" value="Yes" data-bind="checked: mwp_Advertising, enable: enableValue" data-parsley-required="true" data-parsley-errors-container=".validateAdvertisingMsg"
-                        data-parsley-class-handler=".validateAdvertisingBox" disabled="">
+                        data-parsley-class-handler=".validateAdvertisingBox">
                         <label class="ms-ChoiceField-field" for="Advertising-yes"><span class="ms-Label">Yes</span> </label>
                     </div>
                     <div class="ms-ChoiceField validate" style="padding-left: 30px; float: left;">
-                        <input name="Advertising" class="ms-ChoiceField-input" id="Advertising-no" type="radio" value="No" data-bind="checked: mwp_Advertising, enable: enableValue" data-parsley-required="true" disabled="">
+                        <input name="Advertising" class="ms-ChoiceField-input" id="Advertising-no" type="radio" value="No" data-bind="checked: mwp_Advertising, enable: enableValue" data-parsley-required="true">
                         <label class="ms-ChoiceField-field" for="Advertising-no"><span class="ms-Label">No</span> </label>
                     </div>
                 </div>
@@ -332,21 +329,21 @@
             <div class="row-spacing"></div>
         </div>
     </div>
-    <div class="ms-Grid-row" style="display: block;" data-bind="style: { display: mwp_AdvertisingShow }">
+    <div class="ms-Grid-row" style="display: none;" data-bind="style: { display: mwp_AdvertisingShow }">
         <div class="ms-u-lg12 ms-u-md12 ms-u-sm12 ms-Grid-col">
             <component-textboxcustom id="345aaa38-01b3-0944-fb27-e72c839625da" params="'InternalName': 'mwp_AdvertisingCost', 'width': '110px', 'maxlength': '9', 'required': mwp_AdvertisingCostRequired, 'label': 'Cost $', 'infotip': '', 'datatype': 'number', 'placeholder': '$' "
             class=""></component-textboxcustom>
             <div class="row-spacing"></div>
         </div>
     </div>
-    <div class="ms-Grid-row" style="display: block;" data-bind="style: { display: mwp_PayeeTaxIdCertShow }">
+    <div class="ms-Grid-row" style="display: none;" data-bind="style: { display: mwp_PayeeTaxIdCertShow }">
         <div class="ms-u-lg12 ms-u-md12 ms-u-sm12 ms-Grid-col">
             <component-textboxcustom id="4a45f17f-da84-c086-aa32-f49b7f605c85" params="'InternalName': 'mwp_PayeeTaxId', 'width': '110px', 'maxlength': '9', 'required': mwp_PayeeTaxIdRequired, 'label': 'Payee Tax ID', 'infotip': 'Tax ID numbers are available on an organizationâs W-9.', 'datatype': 'number', 'placeholder': '' "
             class=""></component-textboxcustom>
             <div class="row-spacing"></div>
         </div>
     </div>
-    <div class="ms-Grid-row" style="display: block;" data-bind="style: { display: mwp_PayeeTaxIdCertShow }">
+    <div class="ms-Grid-row" style="display: none;" data-bind="style: { display: mwp_PayeeTaxIdCertShow }">
         <div class="ms-u-lg12 ms-u-md12 ms-u-sm12 ms-Grid-col"> <span class="ms-Label">Attach Certification <span class="tooltip"><span class="information table-Cell" style="width: 20px;">&nbsp;</span><span class="tooltiptext">Upload signed third-party certification. If you have any questions regarding the certification, save your request and contact the OEC directly.  <b>DO NOT</b> use following special characters in any file names as they are <u>invalid</u> (an error will occur if you use any of them): \ / : * ? " &lt; &gt; | # { } % ~ &amp; </span></span>
             </span>
             <component-attachmentcustom id="c2b83419-b350-3fa9-e158-b4e67e97fa47" params="'prefix': 'cert', 'required': SetAttachmentRequiredCert " class=""></component-attachmentcustom>
@@ -360,11 +357,11 @@
                 <div class="table-Cell validateInserviceBox validate" style="padding: 5px; border-radius: 3px;">
                     <div class="ms-ChoiceField validate" style="float: left;">
                         <input name="Inservice" class="ms-ChoiceField-input" id="Inservice-yes" type="radio" value="Yes" data-bind="checked: mwp_InService, enable: enableValue" data-parsley-required="true" data-parsley-errors-container=".validateInserviceMsg"
-                        data-parsley-class-handler=".validateInserviceBox" disabled="">
+                        data-parsley-class-handler=".validateInserviceBox">
                         <label class="ms-ChoiceField-field" for="Inservice-yes"><span class="ms-Label">Yes</span> </label>
                     </div>
                     <div class="ms-ChoiceField validate" style="padding-left: 30px; float: left;">
-                        <input name="Inservice" class="ms-ChoiceField-input" id="Inservice-no" type="radio" value="No" data-bind="checked: mwp_InService, enable: enableValue" data-parsley-required="true" disabled="">
+                        <input name="Inservice" class="ms-ChoiceField-input" id="Inservice-no" type="radio" value="No" data-bind="checked: mwp_InService, enable: enableValue" data-parsley-required="true">
                         <label class="ms-ChoiceField-field" for="Inservice-no"><span class="ms-Label">No</span> </label>
                     </div>
                 </div>
@@ -373,7 +370,7 @@
             <div class="row-spacing"></div>
         </div>
     </div>
-    <div class="ms-Grid-row" style="display: block;" data-bind="style: { display: mwp_InServiceShow }">
+    <div class="ms-Grid-row" style="display: none;" data-bind="style: { display: mwp_InServiceShow }">
         <div class="ms-u-lg12 ms-u-md12 ms-u-sm12 ms-Grid-col">
             <component-textboxcustom id="85c81e77-cf55-262c-24da-9bb5909cd49c" params="'InternalName': 'mwp_Topic', 'width': '600px', 'maxlength': '255', 'required': mwp_TopicRequired, 'label': 'Topic', 'placeholder': '' " class=""></component-textboxcustom>
             <div class="row-spacing"></div>
@@ -385,12 +382,11 @@
                 <label class="ms-Label">Speaker</label>
                 <div class="table-Cell validateSpeakerBox validate" style="padding: 5px; border-radius: 3px;">
                     <div class="ms-ChoiceField validate" style="float: left;">
-                        <input name="Speaker" class="ms-ChoiceField-input" id="Speaker-yes" type="radio" value="Yes" data-bind="checked: mwp_Speaker, enable: enableValue" data-parsley-required="true" data-parsley-errors-container=".validateSpeakerMsg" data-parsley-class-handler=".validateSpeakerBox"
-                        disabled="">
+                        <input name="Speaker" class="ms-ChoiceField-input" id="Speaker-yes" type="radio" value="Yes" data-bind="checked: mwp_Speaker, enable: enableValue" data-parsley-required="true" data-parsley-errors-container=".validateSpeakerMsg" data-parsley-class-handler=".validateSpeakerBox">
                         <label class="ms-ChoiceField-field" for="Speaker-yes"><span class="ms-Label">Yes</span> </label>
                     </div>
                     <div class="ms-ChoiceField validate" style="padding-left: 30px; float: left;">
-                        <input name="Speaker" class="ms-ChoiceField-input" id="Speaker-no" type="radio" value="No" data-bind="checked: mwp_Speaker, enable: enableValue" data-parsley-required="true" disabled="">
+                        <input name="Speaker" class="ms-ChoiceField-input" id="Speaker-no" type="radio" value="No" data-bind="checked: mwp_Speaker, enable: enableValue" data-parsley-required="true">
                         <label class="ms-ChoiceField-field" for="Speaker-no"><span class="ms-Label">No</span> </label>
                     </div>
                 </div>
@@ -399,7 +395,7 @@
             <div class="row-spacing"></div>
         </div>
     </div>
-    <div class="ms-Grid-row" style="display: block;" data-bind="style: { display: mwp_SpeakerShow }">
+    <div class="ms-Grid-row" style="display: none;" data-bind="style: { display: mwp_SpeakerShow }">
         <div class="ms-u-lg12 ms-u-md12 ms-u-sm12 ms-Grid-col">
             <component-textboxcustom id="c31fe995-ae35-503b-df99-338283212922" params="'InternalName': 'mwp_SpeakerName', 'width': '600px', 'maxlength': '255', 'required': mwp_SpeakerNameRequired, 'label': 'Planned Speaker', 'infotip': 'Provide the name of the planned speaker(s).', 'placeholder': '' "
             class=""></component-textboxcustom>
@@ -413,11 +409,11 @@
                 <div class="table-Cell validateOtherParticipationBox validate" style="padding: 5px; border-radius: 3px;">
                     <div class="ms-ChoiceField validate" style="float: left;">
                         <input name="OtherParticipation" class="ms-ChoiceField-input" id="OtherParticipation-yes" type="radio" value="Yes" data-bind="checked: mwp_OtherParticipation, enable: enableValue" data-parsley-required="true" data-parsley-errors-container=".validateOtherParticipationMsg"
-                        data-parsley-class-handler=".validateOtherParticipationBox" disabled="">
+                        data-parsley-class-handler=".validateOtherParticipationBox">
                         <label class="ms-ChoiceField-field" for="OtherParticipation-yes"><span class="ms-Label">Yes</span> </label>
                     </div>
                     <div class="ms-ChoiceField validate" style="padding-left: 30px; float: left;">
-                        <input name="OtherParticipation" class="ms-ChoiceField-input" id="OtherParticipation-no" type="radio" value="No" data-bind="checked: mwp_OtherParticipation, enable: enableValue" data-parsley-required="true" disabled="">
+                        <input name="OtherParticipation" class="ms-ChoiceField-input" id="OtherParticipation-no" type="radio" value="No" data-bind="checked: mwp_OtherParticipation, enable: enableValue" data-parsley-required="true">
                         <label class="ms-ChoiceField-field" for="OtherParticipation-no"><span class="ms-Label">No</span> </label>
                     </div>
                 </div>
@@ -426,7 +422,7 @@
             <div class="row-spacing"></div>
         </div>
     </div>
-    <div class="ms-Grid-row" style="display: block;" data-bind="style: { display: mwp_OtherParticipationShow }">
+    <div class="ms-Grid-row" style="display: none;" data-bind="style: { display: mwp_OtherParticipationShow }">
         <div class="ms-u-lg12 ms-u-md12 ms-u-sm12 ms-Grid-col">
             <component-textboxcustom id="7a91ec4a-9c8f-ed1c-930a-6e4440e48edf" params="'InternalName': 'mwp_DescribeOther', 'width': '600px', 'maxlength': '255', 'required': mwp_DescribeOtherRequired, 'label': 'Describe', 'infotip': 'Provide a detailed description of additional participation requested.', 'placeholder': '' "
             class=""></component-textboxcustom>
@@ -441,11 +437,11 @@
                 <div class="table-Cell validateExtraRegistrationsBox validate" style="padding: 5px; border-radius: 3px;">
                     <div class="ms-ChoiceField validate" style="float: left;">
                         <input name="ExtraRegistrations" class="ms-ChoiceField-input" id="ExtraRegistrations-yes" type="radio" value="Yes" data-bind="checked: mwp_ExtraRegistrations, enable: enableValue" data-parsley-required="true" data-parsley-errors-container=".validateExtraRegistrationsMsg"
-                        data-parsley-class-handler=".validateExtraRegistrationsBox" disabled="">
+                        data-parsley-class-handler=".validateExtraRegistrationsBox">
                         <label class="ms-ChoiceField-field" for="ExtraRegistrations-yes"><span class="ms-Label">Yes</span> </label>
                     </div>
                     <div class="ms-ChoiceField validate" style="padding-left: 30px; float: left;">
-                        <input name="ExtraRegistrations" class="ms-ChoiceField-input" id="ExtraRegistrations-no" type="radio" value="No" data-bind="checked: mwp_ExtraRegistrations, enable: enableValue" data-parsley-required="true" disabled="">
+                        <input name="ExtraRegistrations" class="ms-ChoiceField-input" id="ExtraRegistrations-no" type="radio" value="No" data-bind="checked: mwp_ExtraRegistrations, enable: enableValue" data-parsley-required="true">
                         <label class="ms-ChoiceField-field" for="ExtraRegistrations-no"><span class="ms-Label">No</span> </label>
                     </div>
                 </div>
@@ -454,7 +450,7 @@
             <div class="row-spacing"></div>
         </div>
     </div>
-    <div class="ms-Grid-row" style="display: block;" data-bind="style: { display: mwp_ExtraRegistrationsShow }">
+    <div class="ms-Grid-row" style="display: none;" data-bind="style: { display: mwp_ExtraRegistrationsShow }">
         <div class="ms-u-lg12 ms-u-md12 ms-u-sm12 ms-Grid-col">
             <component-textboxcustom id="035825f2-c522-20ec-06e6-3fbe42b79ABC" params="'InternalName': 'mwp_RegistrationFee', 'width': '110px', 'maxlength': '9', 'required': mwp_ExtraRegistrationsRequired, 'label': 'Registration Fee $', 'infotip': '', 'datatype': 'number', 'placeholder': '$'"
             class=""></component-textboxcustom>
@@ -463,7 +459,7 @@
     </div>
     <div class="ms-Grid-row" style="display: block;">
         <div class="ms-u-lg12 ms-u-md12 ms-u-sm12 ms-Grid-col">
-            <h2>Total Cost: $<span data-bind="text: TotalCost">2800</span></h2>
+            <h2>Total Cost: $<span data-bind="text: TotalCost">0</span></h2>
             <div class="row-spacing"></div>
         </div>
     </div>
@@ -483,7 +479,7 @@
             <div class="validateCheck validate" id="validate" style="padding: 5px; border-radius: 3px;">
                 <div class="ms-ChoiceField">
                     <input class="ms-ChoiceField-input" id="demo-checkbox-unselected" required="" type="checkbox" data-bind="checked: mwp_TermsAndConditions, enable: enableValue" data-parsley-errors-container=".validateCheck" data-parsley-class-handler=".validateCheck"
-                    data-parsley-error-message="Terms and Conditions must be accepted." disabled="">
+                    data-parsley-error-message="Terms and Conditions must be accepted.">
                     <label class="ms-ChoiceField-field" for="demo-checkbox-unselected"> <span class="ms-Label" style="width: 95%;">
 							By submitting this proposal to participate in a third-party event, I certify that I am familiar with the Medline policy on interactions with healthcare providers. This proposal complies with Medline policy and is not made to induce the purchase of items or services from Medline or as a reward for purchasing items or services from Medline.
 						</span> </label>
