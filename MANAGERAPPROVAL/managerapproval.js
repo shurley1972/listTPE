@@ -39,7 +39,13 @@ define(['text!./managerapproval.html', 'text!./workflow.xaml'], function( htmlSt
 		 * Task form variables
 		 */
 		 
-		this.mwp_VendorBoothFee = ko.observable().extend({ listItem: "mwp_VendorBoothFee" });			 
+		this.mwp_VendorBoothFee = ko.observable().extend({ listItem: "mwp_VendorBoothFee" });			
+		this.mwp_SponsorshipAmount = ko.observable().extend({ listItem: "mwp_SponsorshipAmount" });	
+		this.mwp_AdvertisingCost = ko.observable().extend({ listItem: "mwp_AdvertisingCost" });	
+		this.mwp_InService = ko.observable().extend({ listItem: "mwp_Inservice" });	
+		this.mwp_Speaker = ko.observable().extend({ listItem: "mwp_Speaker" });			
+		this.mwp_RegistrationFee = ko.observable().extend({ listItem: "mwp_RegistrationFee" });	
+
 		this.approvalWorkflowText = ko.observable().extend({ listItem: "mwp_ApprovalWorkflow" });	
 		this.approvalWorkflowJSON = ko.observable().extend({ listItem: "mwp_ApprovalWorkflowJSON" });
 		this.approvalWorkflowText.subscribe( function(strValue) {
@@ -89,7 +95,7 @@ define(['text!./managerapproval.html', 'text!./workflow.xaml'], function( htmlSt
 			//this.approvalWorkflowJSON()[this.ID] = this.$jsonNewEmptyWorkflowStep();
 			this.approvalWorkflowJSON()[this.ID].ReviewerOutcome = "Approved";
 			this.approvalWorkflowJSON()[this.ID].ReviewerComments = this.commentsValue();
-			if(Number(this.mwp_VendorBoothFee()) <= 1000)
+			if(Number(this.mwp_VendorBoothFee()) <= 1000 && Number(this.mwp_SponsorshipAmount()) == 0 && Number(this.mwp_AdvertisingCost()) == 0 && this.mwp_InService() == 'No' && this.mwp_Speaker() == 'No' && Number(this.mwp_RegistrationFee()) == 0)
 				{
 					this.approvalWorkflowJSON()[this.ID].NextID = "";
 					this.approvalWorkflowJSON()["OECApproval"].Processed = true;					
